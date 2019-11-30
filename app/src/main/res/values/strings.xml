@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">TestNews</string>
+    <string name="default_network_error_message">Отсутствует соединение с интернетом.</string>
+    <string name="default_unexpected_error_message">Неизвестная ошибка на сервере.</string>
+    <string name="default_error_message">Ошибка cоединения с сервером.</string>
+
+    <string name="timed_out">Время запроса истекло.</string>
+    <string name="network_connection_lost">Прервано соединение с интернетом.</string>
+    <string name="bad_server_response">Неверный ответ от сервера.</string>
+    <string name="server_error">Непредвиденная ошибка на сервере.</string>
+    <string name="bad_connection">Не получилось загрузить изображение. Проверьте интернет соеденение</string>
+    <string name="empty_fields">Обязательные поля не зполнены</string>
+    <string name="unknown_error">Произошла неизвестная ошибка.</string>
+    <string name="unknown_error_from_backend">Произошла ошибка на сервере. Пожалуйста, обновите приложение</string>
+
+    <string name="checking">Идет проверка</string>
+    <string name="try_again">Пожалуйста, попробуйте еще раз.</string>
+    <string name="news_tab">News</string>
+    <string name="top_tab">Top</string>
+    <string name="best_tap">Best</string>
+    <string name="commentBtnText">Comments</string>
+
+</resources>

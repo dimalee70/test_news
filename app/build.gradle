@@ -1,0 +1,116 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "kz.test.testnews"
+        minSdkVersion 24
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled true
+    }
+
+    flavorDimensions "api"
+    productFlavors {
+        development {
+            buildConfigField "String", "API_ENDPOINT", '"https://hacker-news.firebaseio.com/"'
+            dimension "api"
+        }
+        production {
+            buildConfigField "String", "API_ENDPOINT", '"https://hacker-news.firebaseio.com/"'
+            dimension "api"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets { main { resources.srcDirs = ['src/main/resources', 'src/main/resources/'] } }
+}
+
+def retrofit = '2.4.0'
+def moxyVersion = '1.0.14'
+def lottieVersion = '3.0.7'
+
+dependencies {
+    ext.koin_version = '2.0.1'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.1.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    // materail io
+    implementation 'com.google.android.material:material:1.0.0'
+    //constraint
+    implementation "androidx.constraintlayout:constraintlayout:2.0.0-beta3"
+
+    //navigation
+    implementation 'ru.terrakok.cicerone:cicerone:5.0.0'
+//    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+//    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    // di
+    implementation "org.koin:koin-androidx-scope:$koin_version"
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+    implementation "org.koin:koin-androidx-ext:2.0.1"
+
+    //network
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+    implementation 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.4.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'org.greenrobot:eventbus:3.1.1'
+//    implementation 'com.onesignal:OneSignal:3.11.4'
+
+    // Timber dependency
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+    //lottie
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+
+    //testing
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'com.android.support:multidex:1.0.3'
+
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    implementation "com.github.bumptech.glide:okhttp3-integration:4.9.0"
+    kapt 'com.github.bumptech.glide:compiler:4.9.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    //moxy
+    kapt "com.github.moxy-community:moxy-compiler:$moxyVersion"
+    implementation "com.github.moxy-community:moxy:$moxyVersion"
+    implementation "com.github.moxy-community:moxy-androidx:$moxyVersion"
+    implementation "com.crashlytics.sdk.android:crashlytics:2.10.1"
+    implementation 'joda-time:joda-time:2.10.3'
+    implementation 'com.android.support:multidex:1.0.3'
+    //location
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+}
